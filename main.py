@@ -25,11 +25,18 @@ def cesar(start_text, shift_amount, cipher_direction):
     print(f"The {cipher_direction}d text is: {end_text}")
 
 
+should_continue = True
 print(logo)
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-shift = shift % 26
 
-cesar(text, shift, direction)
+while should_continue:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
+
+    cesar(text, shift, direction)
+    result = input("Type yes to go again or no to quit").lower()
+    if result == "no":
+        should_continue = False
+        print("Goodbye")
 input("\n\nPress enter to exit.")
