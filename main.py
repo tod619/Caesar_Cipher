@@ -35,6 +35,9 @@ def decrypt(cipher_text, shift_amount):
     print(f"The decoded text is: {plain_text}")
 
 
-# encrypt(text, shift)
-decrypt(text, shift)
+if direction == "encode":
+    encrypt(text, shift)
+elif direction == "decode":
+    decrypt(text, shift)
+
 input("\n\nPress enter to exit.")
