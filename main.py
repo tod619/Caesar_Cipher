@@ -12,32 +12,17 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 
-def encrypt(plan_text, shift_amount):
-    """ Encrypts the user entered text by the given amounts of shift"""
-    cipher_text = ""
-    for letter in plan_text:
+def cesar(start_text, shift_amount, cipher_direction):
+    """ Take a starting pice of text and encrypt or decrypt by an amount depending on user input"""
+    end_text = ""
+    if cipher_direction == "decode":
+        shift_amount *= -1
+    for letter in start_text:
         position = alphabet.index(letter)
         new_position = position + shift_amount
-        new_letter = alphabet[new_position]
-        cipher_text += new_letter
-
-    print(f"the encoded text is: {cipher_text}")
+        end_text += alphabet[new_position]
+    print(f"The {cipher_direction}d text is: {end_text}")
 
 
-def decrypt(cipher_text, shift_amount):
-    """ Decrypts a previously encrypt message """
-    plain_text = ""
-    for letter in cipher_text:
-        position = alphabet.index(letter)
-        new_position = position - shift_amount
-        plain_text += alphabet[new_position]
-
-    print(f"The decoded text is: {plain_text}")
-
-
-if direction == "encode":
-    encrypt(text, shift)
-elif direction == "decode":
-    decrypt(text, shift)
-
+cesar(text, shift, direction)
 input("\n\nPress enter to exit.")
