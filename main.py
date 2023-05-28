@@ -24,5 +24,17 @@ def encrypt(plan_text, shift_amount):
     print(f"the encoded text is: {cipher_text}")
 
 
-encrypt(text, shift)
+def decrypt(cipher_text, shift_amount):
+    """ Decrypts a previously encrypt message """
+    plain_text = ""
+    for letter in cipher_text:
+        position = alphabet.index(letter)
+        new_position = position - shift_amount
+        plain_text += alphabet[new_position]
+
+    print(f"The decoded text is: {plain_text}")
+
+
+# encrypt(text, shift)
+decrypt(text, shift)
 input("\n\nPress enter to exit.")
