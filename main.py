@@ -26,7 +26,7 @@ print(logo)
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
-
+shift = shift % 26
 
 cesar(text, shift, direction)
 input("\n\nPress enter to exit.")
